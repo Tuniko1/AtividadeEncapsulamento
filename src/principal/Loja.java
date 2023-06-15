@@ -16,12 +16,11 @@ public class Loja {
 			
 			do {
 				
-				System.out.println("\nIniciar o programa?");
+				System.out.println("\nMostrar o menu?");
 				opcao = sc.next().charAt(0);
 					if (opcao == 's'||opcao == 'S') {
 						m.menuPrincipal();
 						
-				
 				}else {
 					System.out.println("Encerrando...");
 					

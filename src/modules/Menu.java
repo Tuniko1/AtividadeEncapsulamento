@@ -2,7 +2,7 @@ package modules;
 
 
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -68,20 +68,17 @@ public class Menu {
 		System.out.println("--- Cadastro de Produtos ---");
 		System.out.println("----------------------------");
 		System.out.println();
-		
 
 		System.out.println("Insira o nome do produto: ");
-		descricao = sc.nextLine();
-		p.setDescricao(descricao);
-		//sc.next();
+		
+		p.setDescricao(sc.nextLine());
+		sc.next();
 		
 		System.out.println("Insira o preço do produto: ");
-		preco = sc.nextDouble();
-		p.setPreco(preco);
+		p.setPreco(sc.nextDouble());
 		
 		System.out.println("Insira a quantidade do produto: ");
-		qtd = sc.nextInt();
-		p.setQtd(qtd);
+		p.setQtd(sc.nextInt());
 		
 		}else {
 			
@@ -89,8 +86,6 @@ public class Menu {
 			System.out.println("----------------------------");
 			System.out.println();
 			
-			
-
 			System.out.println("Insira o nome do produto: ");
 			descricao = sc.nextLine();
 			p.setDescricao(descricao);
@@ -102,50 +97,27 @@ public class Menu {
 			
 			System.out.println("Insira a quantidade do produto: ");
 			qtd = sc.nextInt();
-			p.setQtd(qtd);
-			
+			p.setQtd(qtd);	
 		}
-		
-		
 		menuPrincipal();
-		
 	}
 	
 	public void mostraDados() {
 		if (total == 0 ) {
 			total = p.getQtd();
 			qtd = total;
-			p.setQtd(qtd);			
-		}else {
+			p.setQtd(qtd);
+			p.setvalorTotal(total);
+		}else if (total > 0){
 			total = p.getvalorTotal();
 			qtd = total;
 			p.setQtd(qtd);
-		}
-		
-		
-	    ArrayList<String> produto = new ArrayList();
-	    ArrayList<Integer> produto1 = new ArrayList();
-	    // [ B ] usando o método add() para gravar 4 contatos na agenda
-	    produto.add(p.getDescricao());
-	    produto1.add(p.getQtd());
-//	    produto.add();
-	    produto.add("Antônio Conselheiro;44 4444-4444");
-
-	    int i;
-
-	    // [ C ] mostrando os "n" contatos da agenda (usando o índice)
-	    // número de elementos da agenda: método size()
-	    System.out.printf("Percorrendo o ArrayList (usando o índice)\n");
-	    int n = produto.size();
-	    for (i=0; i<n; i++) {
-	      System.out.printf("Posição %d- %s\n", i, produto.get(i));
-	    }
+		}else 
 		
 		System.out.println("LISTA DE PRODUTO: \n");
-		System.out.println(p.getDescricao() +"-" + "R$"+ p.getPreco() +" Qtd: "+ p.getQtd()+ " | Estoque: "+p.getvalorTotal());
-		
-		
+		System.out.println(p.getDescricao() +" - " + "R$"+ p.getPreco()+" - " +" Qtd: "+ p.getQtd()+ " | Estoque: "+p.getvalorTotal());
 	}
+	
 	public void atualizaValor() {
 		char opcao;
 		System.out.println("Deseja atualizar o valor em estoque?");
@@ -163,7 +135,6 @@ public class Menu {
 			total = sc.nextInt(); 
 			p.setvalorTotal(total);
 			
-		
 		}else {
 			menuPrincipal();
 		}

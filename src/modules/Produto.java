@@ -1,7 +1,5 @@
 package modules;
 
-import java.util.Scanner;
-
 public class Produto {
 	public String descricao;
 	private int qtd;
@@ -13,11 +11,10 @@ public class Produto {
 		return descricao;
 	}
 	public void setDescricao(String Desc) {
-		Scanner sc = new Scanner(System.in);
-		Desc = sc.nextLine();
 		this.descricao = Desc;
-//		sc.close();
+
 	}
+	
 	public int getQtd() {
 		return qtd;
 	}
